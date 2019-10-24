@@ -15,7 +15,7 @@
   <% else %>
     <% @posts.each do |post| %>
       <ol class="posts">
-        <%= render 'homes/post', post: post %>
+        <%= render 'home/post', post: post %>
       </ol>
     <% end %>
     <%= will_paginate @posts %>
