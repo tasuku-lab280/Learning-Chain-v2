@@ -1,0 +1,17 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<p>user search</p>
+<%= form_with url: users_path, method: :get, local: true do |f| %>
+  <%= f.label :search, 'ユーザー検索' %>
+  <%= f.text_field :search %>
+  <%= f.submit '検索' %>
+<% end %>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>

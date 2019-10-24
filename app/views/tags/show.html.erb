@@ -1,0 +1,14 @@
+<% provide(:title, "Category") %>
+<h1>カテゴリ別ページ</h1>
+
+<%= will_paginate @posts %>
+
+<h3>posts (<%= @posts.count %>)</h3>
+
+<% @posts.each do |post| %>
+<ol class="posts">
+  <%= render 'posts/post', post: post %>
+</ol>
+<% end %>
+
+<%= will_paginate @posts %>

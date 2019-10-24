@@ -1,0 +1,36 @@
+<% @user ||= current_user %>
+
+<div class="stats">
+
+  <div class="stats-name">
+    <%= @user.name %>
+  </div>
+
+  <div>
+    <% if @user.image.attached? %>
+      <%= image_tag(@user.image, :size => "100x100", :class => "top-icon", :alt => "アイコン") %>
+    <% else %>
+      <%= image_tag("cat-default.jpg", :size => "100x100", :class => "top-icon", :alt => "アイコン") %>
+    <% end %>
+  </div>
+  
+  <div>
+    <a href="<%= following_user_path(@user) %>">
+      <strong id="following" class="stat">
+        <%= @user.following.count %>
+      </strong>
+      following
+    </a>
+    <a href="<%= followers_user_path(@user) %>">
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      followers
+    </a>
+  </div>
+
+</div>
+
+<% unless current_user?(@user) %>
+  <%= render 'follow_form' if logged_in? %>
+<% end %>
