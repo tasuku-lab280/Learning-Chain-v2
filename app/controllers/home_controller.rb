@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class HomeController < ApplicationController
 
   def index
     @posts = Post.all.paginate(page: params[:page]).search(params[:search])
