@@ -3,6 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/* users#index */
+
+#user_search_form {
+  margin-bottom: 30px;
+}
+
+.users {
+
+  li {
+    border: 2px solid #b8b6b6;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    list-style: none;
+
+    .users-name {
+      font-size: 20px;
+    }
+  }
+}
+
+
 /* users#show */
 
 .show_title_box {

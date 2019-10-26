@@ -1,9 +1,3 @@
-<div class="show_title_box">
-  <span class="show_title">
-    <%= @post.title %>
-  </span>
-</div>
-
 <div>
   <% if @post.user.image.attached? %>
     <%= image_tag(@post.user.image, :size => "50x50", :class => "top-icon", :alt => "アイコン") %>
@@ -11,6 +5,24 @@
     <%= image_tag("cat-default.jpg", :size => "50x50", :class => "top-icon", :alt => "アイコン") %>
   <% end %>
   <span class="user"><%= link_to @post.user.name, @post.user %></span>
+</div>
+
+<div class="show_title_box">
+  <span class="show_title">
+    <%= @post.title %>
+  </span>
+</div>
+
+<div class="show_material_box">
+  <span class="show_material">
+    教材：<%= @post.material %>
+  </span>
+</div>
+
+<div class="show_tags_box">
+  <% @post.tags.each do |tag| %>
+    <span class="label label-primary"><%= tag.name %></span>
+  <% end %>
 </div>
 
 <% if @post.image.attached? %>

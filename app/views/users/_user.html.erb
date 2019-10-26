@@ -1,9 +1,16 @@
 <li>
-  <%= link_to user.name, user %>
-  <% if logged_in? %>
-    <% if current_user.admin? && !current_user?(user) %>
-      | <%= link_to "delete", user, method: :delete,
-                                    data: { confirm: "You sure?" } %>
+  <div>
+    <% if user.image.attached? %>
+      <%= image_tag(user.image, :size => "45x45", :class => "top-icon", :alt => "アイコン") %>
+    <% else %>
+      <%= image_tag("cat-default.jpg", :size => "45x45", :class => "top-icon", :alt => "アイコン") %>
     <% end %>
-  <% end %>
+    <span class="users-name"><%= link_to user.name, user %></span>
+    <% if logged_in? %>
+      <% if current_user.admin? && !current_user?(user) %>
+        | <%= link_to "delete", user, method: :delete,
+                                      data: { confirm: "You sure?" } %>
+      <% end %>
+    <% end %>
+  </div>
 </li>
