@@ -51,18 +51,27 @@ p {
 
 body {
   background: #EEEEEE; 
+  margin-top: 120px;
 }
 
 
 /* header */
 
 header {
-  height: 40px;
+  height: 80px;
+  background-color: #232F3E;
+
   ul {
     display: flex;
     list-style: none;
+
     li {
-      margin: 20px;
+      margin: 30px 20px;
+
+      a {
+        color: white;
+        font-weight: bold;
+      }
     }
   }
 }
@@ -70,17 +79,13 @@ header {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 1.8em;
   color: #fff;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
+  margin: 23px 0;
 }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
 
 
 /* forms */
