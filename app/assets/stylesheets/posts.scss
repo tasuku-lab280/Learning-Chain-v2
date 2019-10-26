@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-/* postのコメント表示部分 */
+/* post#show */
 
 .show_content_box {
   border: 2px solid #b8b6b6;
@@ -55,4 +55,33 @@
 
   
 
+}
+
+
+/* post#new edit */
+
+#post_form {
+  width: 550px;
+  background: white;
+  height: auto;
+  padding: 50px 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.form-control {
+  margin-bottom: 30px;
+}
+
+.submit {
+  margin-top: 30px;
+}
+
+.field {
+  margin: 20px 0;
+
+  #post_content {
+  width: 470px;
+  height: 200px;
+  }
 }

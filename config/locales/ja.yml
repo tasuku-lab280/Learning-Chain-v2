@@ -8,6 +8,7 @@ ja:
         password_confirmation: パスワード（確認）
         image: プロフィール画像
       post: 
-        content: 文章
+        content: 勉強内容
         title: タイトル
         material: 教材
+        image: 画像

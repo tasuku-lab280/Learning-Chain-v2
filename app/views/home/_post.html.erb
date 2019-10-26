@@ -53,8 +53,12 @@
 
       Posted <%= time_ago_in_words(post.created_at) %> ago.
       <% if current_user?(post.user) %>
-        <%= link_to "delete", post, method: :delete,
-                                        data: { confirm: "You sure?" } %>
+        <%= link_to edit_post_path(post.id) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to post, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
       <% end %>
     </div>
 
