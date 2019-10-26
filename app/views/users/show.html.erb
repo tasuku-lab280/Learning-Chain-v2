@@ -24,13 +24,15 @@
   </section>
 
   <% if @user.likes.any? %>
-    <div class="likes">
+    <div class="like-posts">
       <h3>いいねした投稿</h3>
       <% @user.liked_posts.each do |post| %>
         <ul>
-          <%= link_to post_path(post.id) do %>
-            <%= post.user.name %>:<%= post.title %>
-          <% end %>
+          <li>
+            <%= link_to post_path(post.id) do %>
+              <%= post.user.name %>:<%= post.title %>
+            <% end %>
+          </li>
         </ul>
       <% end %>
     </div>

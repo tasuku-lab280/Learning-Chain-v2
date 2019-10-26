@@ -5,6 +5,11 @@
 </div>
 
 <div>
+  <% if @post.user.image.attached? %>
+    <%= image_tag(@post.user.image, :size => "50x50", :class => "top-icon", :alt => "アイコン") %>
+  <% else %>
+    <%= image_tag("cat-default.jpg", :size => "50x50", :class => "top-icon", :alt => "アイコン") %>
+  <% end %>
   <span class="user"><%= link_to @post.user.name, @post.user %></span>
 </div>
 
@@ -16,16 +21,20 @@
   <span class="content"><%= @post.content %></span>
 </div>
 
-<div class="likes">
+<div class="show_likes_box">
     <h3>この投稿をいいねしたユーザー</h3>
     <% @post.liked_users.each do |user| %>
       <ul>
-        <% if user.image.attached? %>
-          <%= image_tag(user.image, :size => "30x30", :class => "top-icon", :alt => "アイコン") %>
-        <% end %>
-        <%= link_to user_path(user.id) do %>
-          <%= user.name %>
-        <% end %>
+        <li>
+          <% if user.image.attached? %>
+            <%= image_tag(user.image, :size => "30x30", :class => "top-icon", :alt => "アイコン") %>
+          <% else %>
+            <%= image_tag("cat-default.jpg", :size => "30x30", :class => "top-icon", :alt => "アイコン") %>
+          <% end %>
+          <%= link_to user_path(user.id) do %>
+            <%= user.name %>
+          <% end %>
+        </li>
       </ul>
     <% end %>
   </div>
@@ -33,20 +42,22 @@
 <%= render 'posts/comment_form' %>
 
 <div class="comment_index">
-  <h3>Comments</h3>
+  <h3>Comments (<%= @post.comments.count %>)</h3>
   <% @post.comments.each do |comment| %>
     <ul>
       <li>
         <div>
+          <% if comment.user.image.attached? %>
+            <%= image_tag(comment.user.image, :size => "50x50", :class => "top-icon", :alt => "アイコン") %>
+          <% else %>
+            <%= image_tag("cat-default.jpg", :size => "50x50", :class => "top-icon", :alt => "アイコン") %>
+          <% end %>
           <%= link_to user_path(comment.user.id) do %>
-            <% if comment.user.image.attached? %>
-              <%= image_tag(comment.user.image, :size => "30x30", :class => "top-icon", :alt => "アイコン") %>
-            <% end %>
-            ：<%= comment.user.name %>
+            <span class= "comment-name"><%= comment.user.name %></span>
           <% end %>
         </div>
-        <div>
-          <%= comment.body %>
+        <div class="comment-box">
+          <span class="comment-body"><%= comment.body %></span>
         </div>
         <span class= "batu"><%= link_to "削除", [@post,comment], method: :delete if current_user?(comment.user) %></span>
       </li>

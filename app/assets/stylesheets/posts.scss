@@ -1,3 +1,58 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* postのコメント表示部分 */
+
+.show_content_box {
+  border: 2px solid #b8b6b6;
+  height: 700px;
+  padding: 20px;
+  word-wrap: break-word;
+}
+
+.show_likes_box {
+  li {
+    list-style: square;
+  }
+}
+
+.comment_index {
+  margin-top: 100px;
+
+  ul {
+    padding: 0;
+
+    li {
+    list-style: none;
+    border: 2px solid #b8b6b6;
+    border-radius: 10px;
+    padding: 10px 20px;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      .comment-name {
+      font-size: 20px;
+      color: black;
+      }
+    }
+  }
+
+    .comment-box {
+      word-wrap: break-word;
+
+      .comment-body {
+      font-size: 22px;
+      }
+    }
+  }
+
+  
+
+}

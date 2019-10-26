@@ -31,17 +31,19 @@
     <%= render 'shared/stats' %>
 
     <% if @user.likes.any? %>
-      <div class="likes">
-        <h3>いいねした投稿</h3>
-        <% @user.liked_posts.each do |post| %>
-          <ul>
+    <div class="like-posts">
+      <h3>いいねした投稿</h3>
+      <% @user.liked_posts.each do |post| %>
+        <ul>
+          <li>
             <%= link_to post_path(post.id) do %>
               <%= post.user.name %>:<%= post.title %>
             <% end %>
-          </ul>
-        <% end %>
-      </div>
-    <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
 
   <% else %>
     <h1>Learning Chain</h1>
