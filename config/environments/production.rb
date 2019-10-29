@@ -27,6 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.action_controller.asset_host = '//d2401dbz79k30x.cloudfront.net'
   config.assets.compile = true
   config.assets.initialize_on_precompile=false
 
@@ -92,6 +93,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_controller.asset_host = '//d2401dbz79k30x.cloudfront.net'
 end
