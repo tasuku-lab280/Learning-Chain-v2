@@ -25,6 +25,12 @@
   <% end %>
 </div>
 
+<% unless @post.clock_id.nil? %>
+  <div class="label label-success show_clock_box">
+    <span class="clock"><%= @post.clock.name %></span>
+  </div>
+<% end %>
+
 <% if @post.image.attached? %>
   <%= image_tag @post.image %>
 <% end %>

@@ -1,66 +1,76 @@
 <li id="post-<%= post.id %>">
-  <div class="parent">
 
-    <div>
-      <span class="title">
+  <div>
+    <span class="title">
+      <%= link_to post_path(post.id) do %>
+        <%= post.title %>
+      <% end %>
+    </span>
+  </div>
+
+  <% unless post.clock_id.nil? %>
+    <div class="label label-success clock-box">
+      <span class="clock"><%= post.clock.name %></span>
+    </div>
+  <% end %>
+
+  <div>
+    <% if post.user.image.attached? %>
+      <%= image_tag(post.user.image, :size => "35x35", :class => "top-icon", :alt => "アイコン") %>
+    <% else %>
+      <%= image_tag("cat-default.jpg", :size => "35x35", :class => "top-icon", :alt => "アイコン") %>
+    <% end %>
+    <span class="user"><%= link_to post.user.name, post.user %></span>
+  </div>
+
+  <div class="material-box">
+    <span class="material">教材：<%= post.material %></span>
+  </div>
+
+  <div class="tag-box">
+    <% post.tags.each do |tag| %>
+      <span class="label label-primary"><%= tag.name %></span>
+    <% end %>
+  </div>
+
+  <div class="time-like">
+    <div class="like-position">
+      <div class="detail-text-box">
         <%= link_to post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-      </span>
-    </div>
-
-    <div>
-      <% if post.user.image.attached? %>
-        <%= image_tag(post.user.image, :size => "35x35", :class => "top-icon", :alt => "アイコン") %>
-      <% else %>
-        <%= image_tag("cat-default.jpg", :size => "35x35", :class => "top-icon", :alt => "アイコン") %>
-      <% end %>
-      <span class="user"><%= link_to post.user.name, post.user %></span>
-    </div>
-
-    <div class="material-box">
-      <span class="material">教材：<%= post.material %></span>
-    </div>
-    <div>
-      <% post.tags.each do |tag| %>
-        <span class="label label-primary"><%= tag.name %></span>
-      <% end %>
-    </div>
-
-    <div class="time-like">
-      <div class="like-position">
-        <% if logged_in? %>
-          <div id="like_form_<%= post.id %>">
-            <% if post.liked_by?(current_user) %>
-              <p>
-                <%= link_to "💓", "/posts/#{post.id}/likes/destroy", method: :delete, remote: true %>
-                <strong><%= post.likes.count %></strong>
-              </p>
-            <% else %>
-              <p>
-                <%= link_to "💓", "/posts/#{post.id}/likes", method: :post, remote: true %>
-                <strong><%= post.likes.count %></strong>
-              </p>
-            <% end %>
-          </div>
-        <% else %>
-          <div id="like_form_<%= post.id %>">
-            💓
-            <strong><%= post.likes.count %></strong>
-          </div>
+          <span class="detail-text">詳細を見る</span>
         <% end %>
       </div>
-
-      Posted <%= time_ago_in_words(post.created_at) %> ago.
-      <% if current_user?(post.user) %>
-        <%= link_to edit_post_path(post.id) do %>
-          <span class="glyphicon glyphicon-edit"></span>
-        <% end %>
-        <%= link_to post, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-        <% end %>
+      <% if logged_in? %>
+        <div id="like_form_<%= post.id %>">
+          <% if post.liked_by?(current_user) %>
+            <p>
+              <%= link_to "💓", "/posts/#{post.id}/likes/destroy", method: :delete, remote: true %>
+              <strong><%= post.likes.count %></strong>
+            </p>
+          <% else %>
+            <p>
+              <%= link_to "💓", "/posts/#{post.id}/likes", method: :post, remote: true %>
+              <strong><%= post.likes.count %></strong>
+            </p>
+          <% end %>
+        </div>
+      <% else %>
+        <div id="like_form_<%= post.id %>">
+          💓
+          <strong><%= post.likes.count %></strong>
+        </div>
       <% end %>
     </div>
 
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+    <% if current_user?(post.user) %>
+      <%= link_to edit_post_path(post.id) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+      <% end %>
+      <%= link_to post, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    <% end %>
   </div>
+
 </li>

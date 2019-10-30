@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :clock, optional: true
   has_many :comments, dependent: :destroy
   has_many :post_tag_relations, dependent: :destroy
   has_many :tags, through: :post_tag_relations

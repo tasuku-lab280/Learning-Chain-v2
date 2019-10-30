@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'faker', '1.7.3'
+gem 'faker', '~> 2.6'
 gem 'rails-i18n', '~> 5.1'
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'

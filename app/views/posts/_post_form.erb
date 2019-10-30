@@ -7,6 +7,9 @@
   <%= f.label :material %>
   <%= f.text_field :material, class: 'form-control' %>
 
+  <%= f.label :勉強時間 %>
+  <%= f.collection_select :clock_id, Clock.all, :id, :name %>
+
   <div class="form-group">
     <span>タグ</span>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>

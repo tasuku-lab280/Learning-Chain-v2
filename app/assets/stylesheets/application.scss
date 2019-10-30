@@ -107,10 +107,6 @@ header {
 
 /* posts */
 
-.parent {
-  position: relative;
-}
-
 .posts {
   list-style: none;
   padding: 0;
@@ -121,9 +117,10 @@ header {
     border: 2px solid #b8b6b6;
     border-radius: 5px;
     height: 160px;
+    position: relative;
 
     div {
-      margin-left: 13px;
+      margin-left: 18px;
       word-wrap: break-word;
 
       .user {
@@ -150,6 +147,24 @@ header {
     }
   } 
 
+  .clock-box {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 55px;
+    height: 35px;
+    border-radius: 2px;
+    text-align: center;
+    display: table;
+    
+    .clock {
+      font-size: 15px;
+      font-weight: bold;
+      display:table-cell;
+      vertical-align:middle;
+    }
+  }
+
   .material-box {
     margin-top: 10px;
   }
@@ -166,12 +181,22 @@ header {
   
   .time-like {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     right: 20px;
   }
   
   .like-position {
     text-align: right;
+    display: flex;
+
+    .detail-text-box {
+      margin-top: 5px;
+
+      .detail-text {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
   }
 
   .top-icon {
@@ -218,4 +243,37 @@ header {
 .follow-btn {
   padding: 1rem 7rem;
   margin-top: 20px;
+}
+
+
+/* timer */
+
+#timer {
+  background: #ddd;
+  height: 120px;
+  line-height: 120px;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.controls > div {
+  cursor: pointer;
+  user-select: none;
+  width: 80px;
+  background: #ddd;
+  height: 45px;
+  line-height: 45px;
+  float: left;
+}
+
+.controls {
+  overflow: hidden;
+}
+
+.controls > div + div {
+  margin-left: 15px;
+}
+
+.controls > div:hover {
+  opacity: 0.7;
 }

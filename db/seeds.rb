@@ -16,8 +16,8 @@ end
 
 users = User.order(:created_at).take(6)
 35.times do |n|
-  content = Faker::Lorem.sentence(5)
-  title = "タイトル-#{n+1}"
+  content = Faker::Food.description
+  title = Faker::Food.dish
   users.each { |user| user.posts.create!(content: content, title: title) }
 end
 
@@ -28,7 +28,19 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
-Tag.create([
+Clock.create!(name:"5分")
+Clock.create!(name:"10分")
+Clock.create!(name:"15分")
+Clock.create!(name:"20分")
+Clock.create!(name:"25分")
+Clock.create!(name:"30分")
+Clock.create!(name:"35分")
+Clock.create!(name:"40分")
+Clock.create!(name:"45分")
+Clock.create!(name:"50分")
+Clock.create!(name:"55分")
+
+Tag.create!([
   { name: "プログラミング" },
   { name: "大学受験" },
   { name: "資格勉強" },
