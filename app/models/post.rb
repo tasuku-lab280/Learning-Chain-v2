@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 300 }
-  validates :title, presence: true, length: { maximum: 100 }
+  validates :title, presence: true, length: { maximum: 50 }
 
   def liked_by?(user)
    	likes.where(user_id: user.id).exists?

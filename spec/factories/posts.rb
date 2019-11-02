@@ -3,5 +3,6 @@ FactoryBot.define do
     content "MyText"
     title "MyString"
     material "test-material"
+    association :user
   end
 end
