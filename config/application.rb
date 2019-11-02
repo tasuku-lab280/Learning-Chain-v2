@@ -14,5 +14,11 @@ module Myapp
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.i18n.default_locale = :ja # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    config.generators do |g|
+      g.test_framework = "rspec"
+      g.helper_specs = false
+      g.view_specs = false
+    end
   end
 end

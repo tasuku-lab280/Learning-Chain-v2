@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :post do
     content "MyText"
     title "MyString"
-    material "MyString"
+    material "test-material"
   end
 end
