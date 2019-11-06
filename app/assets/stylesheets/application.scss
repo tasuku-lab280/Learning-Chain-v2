@@ -248,32 +248,52 @@ header {
 
 /* timer */
 
+.timer-box {
+  background-color: #339966;
+  height: 220px;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+
 #timer {
   background: #ddd;
   height: 120px;
+  width: 400px;
   line-height: 120px;
   font-size: 40px;
-  margin-bottom: 15px;
+  margin: 0 auto 20px;
+  text-align: center;
+  border-radius: 10px;
+
+  .timer-clock {
+    font-size: 6rem;
+  }
 }
 
-.controls > div {
+.timer-action {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.timer-action > div {
   cursor: pointer;
   user-select: none;
   width: 80px;
   background: #ddd;
   height: 45px;
   line-height: 45px;
-  float: left;
+  text-align: center;
+  border-radius: 5px;
 }
 
-.controls {
-  overflow: hidden;
-}
-
-.controls > div + div {
-  margin-left: 15px;
-}
-
-.controls > div:hover {
+.timer-action > div:hover {
   opacity: 0.7;
+}
+
+.minutes {
+  width: 80px;
+  height: 45px;
+  border-radius: 5px;
 }
