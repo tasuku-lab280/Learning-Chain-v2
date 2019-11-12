@@ -1,9 +1,11 @@
 # README
 
 <h2>概要</h2>
-<p><a>https://learning-chain-v2.herokuapp.com/</a></p>
-<p>Learning Chainは勉強記録を投稿し、仲間とシェアすることでモチベーションを高めあうサービスです。</p>
-<p>タイマー機能で勉強時間を計測することで、ポモドーロテクニックを実践することができます。</p>
+<p><a href="https://learning-chain-v2.herokuapp.com/"></a></p>
+<ul>
+  <li>Learning Chainは勉強記録を投稿し、仲間とシェアすることでモチベーションを高めあうサービスです。</li>
+  <li>タイマー機能で勉強時間を計測することで、ポモドーロテクニックを実践することができます。</li>
+</ul>
 
 <h2>実装した機能</h2>
 
