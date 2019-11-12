@@ -32,7 +32,9 @@
 <% end %>
 
 <% if @post.image.attached? %>
-  <%= image_tag @post.image %>
+  <div class="show_image_box">
+    <%= image_tag @post.image %>
+  </div>
 <% end %>
 
 <div class="show_content_box">

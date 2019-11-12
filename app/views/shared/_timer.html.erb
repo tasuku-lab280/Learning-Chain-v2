@@ -1,5 +1,5 @@
 <div class="timer-box">
-  <div class="maintimer" id="timer"><span class="timer-clock">00:00</span></div>
+  <div class="maintimer" id="timer"><span id="timer-clock">00:00</span></div>
   <div class="timer-action">
     <div>
       <select name="minutes" class="minutes" id="min">
@@ -71,18 +71,6 @@
           timeLeft = 0;
           timeToCountDown = 0;
           updateTimer(timeLeft);
-          // $('#timer-modal').fadeOut();
-
-          // プッシュ通知
-          Push.create("ORT.", {
-            body: "終了です。お疲れ様でした！",
-            timeout: 8000,
-            onClick: function () {
-              window.focus();
-              this.close();
-            }
-          });
-
           return;
         }
         updateTimer(timeLeft);
@@ -132,14 +120,10 @@
         timeToCountDown = 0;
       }
 
-      // 投稿画面の時間選択にも反映させる
-      $("#select_time").val(min);
-
-      // プッシュ通知の許可
-      // iOSではブラウザ通知に対応していないためエラーになるが、エラーになっても処理は続けて欲しい
       try {
         Push.Permission.request();
       }
+
       finally {
         updateTimer(timeToCountDown);
       }
@@ -153,5 +137,5 @@
     });
 
 
-  })();
+  })
 </script>
