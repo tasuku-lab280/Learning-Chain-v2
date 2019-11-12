@@ -1,6 +1,9 @@
 # README
 
-現在開発中
+<h2>概要</h2>
+<p><a>https://learning-chain-v2.herokuapp.com/</a></p>
+<p>Learning Chainは勉強記録を投稿し、仲間とシェアすることでモチベーションを高めあうサービスです。</p>
+<p>タイマー機能で勉強時間を計測することで、ポモドーロテクニックを実践することができます。</p>
 
 <h2>実装した機能</h2>
 
@@ -26,8 +29,16 @@
   <li>Active Storageを使った画像アップロード</li>
   <li>AWSS3に画像を保存</li>
   <li>CloudFrontによるCDN配信</li>
-  <li>Circle Ciによる自動テスト</li>
+  <li>Circle CIによる自動テスト</li>
   <li>Rspecでテスト記述</li>
   <li>Herokuにデプロイ</li>
 </ul>
 
+<h2>改良したいこと</h2>
+
+<ul>
+  <li>EC2にデプロイ</li>
+  <li>Circle CIによる自動デプロイ</li>
+  <li>Rspecのテストがまだ不十分</li>
+  <li>Herokuにデプロイ</li>
+</ul>
