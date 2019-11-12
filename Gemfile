@@ -23,6 +23,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem "aws-sdk-s3", require: false
 gem 'asset_sync'
 gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
