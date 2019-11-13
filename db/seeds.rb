@@ -4,6 +4,11 @@ User.create!(name:  "管理ユーザー",
              password_confirmation: "foobar",
              admin: true)
 
+User.create!(name:  "テストユーザー",
+             email: "test@example.com",
+             password:              "password",
+             password_confirmation: "password")
+
 60.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@example.org"
