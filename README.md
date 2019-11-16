@@ -42,5 +42,4 @@
   <li>EC2にデプロイ</li>
   <li>Circle CIによる自動デプロイ</li>
   <li>Rspecのテストがまだ不十分</li>
-  <li>Herokuにデプロイ</li>
 </ul>
