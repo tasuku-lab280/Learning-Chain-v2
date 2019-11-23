@@ -42,8 +42,4 @@
   <li>EC2にデプロイ</li>
   <li>Circle CIによる自動デプロイ</li>
   <li>Rspecのテストがまだ不十分</li>
-<<<<<<< HEAD
 </ul>
-=======
-</ul>
->>>>>>> origin/master
