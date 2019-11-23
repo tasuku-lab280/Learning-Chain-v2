@@ -18,8 +18,10 @@ class Post < ApplicationRecord
    	likes.where(user_id: user.id).exists?
   end
   
+  #引数に検索フォームで入力した値が入る
   def self.search(search) 
     if search
+      #SQLのあいまい検索のLIKE ?
       where(['title LIKE ?', "%#{search}%"]) 
     else
       all 

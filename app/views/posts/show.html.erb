@@ -62,8 +62,8 @@
 <%= render 'posts/comment_form' %>
 
 <div class="comment_index">
-  <h3>Comments (<%= @post.comments.count %>)</h3>
-  <% @post.comments.each do |comment| %>
+  <h3>Comments (<%= @comments.count %>)</h3>
+  <% @comments.each do |comment| %>
     <ul>
       <li>
         <div>
