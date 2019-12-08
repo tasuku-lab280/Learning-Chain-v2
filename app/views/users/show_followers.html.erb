@@ -7,7 +7,8 @@
       <ul class="users follow">
         <%= render @users %>
       </ul>
-      <%= will_paginate %>
+      <%= paginate @users %>
+      <%= page_entries_info @users %>
     <% end %>
   </div>
 

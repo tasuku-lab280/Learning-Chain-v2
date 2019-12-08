@@ -4,15 +4,15 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @q = User.paginate(page: params[:page]).ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @q = User.all.ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page])
   end
 
   def show
     @user = User.find(params[:id])
     
-    @q = @user.posts.paginate(page: params[:page]).ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @q = @user.posts.ransack(params[:q])
+    @posts = @q.result(distinct: true).page(params[:page])
   end
   
   def new
@@ -53,14 +53,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.page(params[:page])
     render 'show_following'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.page(params[:page])
     render 'show_followers'
   end
 

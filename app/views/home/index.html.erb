@@ -20,7 +20,8 @@
           <%= render 'home/post', post: post %>
         </ol>
       <% end %>
-      <%= will_paginate @posts %>
+      <%= paginate @posts %>
+      <%= page_entries_info @posts %>
     <% end %>
 
   </div>
