@@ -1,41 +1,43 @@
-<div class="col-md-8">
-  <%= form_with url: user_path, method: :get, local: true do |f| %>
-    <%= f.label :search, '投稿タイトル検索' %>
-    <div>
-      <%= f.text_field :search %>
-      <%= f.submit '検索' %>
-    </div>
-  <% end %>
-  <% if @user.posts.any? %>
-    <h3>Posts (<%= @user.posts.count %>)</h3>
-    <ol class="posts">
-      <% @posts.each do |post| %>
-        <%= render 'posts/post', post: post %>
-      <% end %>
-    </ol>
-    <%= will_paginate @posts %>
-  <% end %>
-</div>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_with url: user_path, method: :get, local: true do |f| %>
+      <%= f.label :search, '投稿タイトル検索' %>
+      <div>
+        <%= f.text_field :search %>
+        <%= f.submit '検索' %>
+      </div>
+    <% end %>
+    <% if @user.posts.any? %>
+      <h3>Posts (<%= @user.posts.count %>)</h3>
+      <ol class="posts p-0">
+        <% @posts.each do |post| %>
+          <%= render 'posts/post', post: post %>
+        <% end %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
 
-<div class="col-md-4">
+  <div class="col-md-4">
 
-  <section class="stats">
-    <%= render 'shared/stats' %>
-  </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
 
-  <% if @user.likes.any? %>
-    <div class="like-posts">
-      <h3>いいねした投稿</h3>
-      <% @user.liked_posts.each do |post| %>
-        <ul>
-          <li>
-            <%= link_to post_path(post.id) do %>
-              <%= post.user.name %>:<%= post.title %>
-            <% end %>
-          </li>
-        </ul>
-      <% end %>
-    </div>
-  <% end %>
+    <% if @user.likes.any? %>
+      <div class="like-posts">
+        <h3>いいねした投稿</h3>
+        <% @user.liked_posts.each do |post| %>
+          <ul>
+            <li>
+              <%= link_to post_path(post.id) do %>
+                <%= post.user.name %>:<%= post.title %>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
 
+  </div>
 </div>

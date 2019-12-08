@@ -1,5 +1,5 @@
 <% if @feed_items.any? %>
-  <ol class="posts">
+  <ol class="posts p-0">
     <% @feed_items.each do |post| %>
       <%= render 'home/post', post: post %>
     <% end %>

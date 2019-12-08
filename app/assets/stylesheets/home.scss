@@ -3,54 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.right-box p {
-  font-weight: bold;
-}
-
-.button-box {
-  margin-top: 70px;
-}
-
-.btn-flat-logo-signup {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.5em 6em;
-  text-decoration: none;
-  color: #FFF;
-  background: #00bcd4;
-  transition: .4s;
-  border-radius: 10px;
-}
-
-.btn-flat-logo-signup:hover {
-  background: #1ec7bb;
-}
-
-
-
-.btn-flat-logo-login {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.5em 6em;
-  text-decoration: none;
-  color: #FFF;
-  background: #FF3366;
-  transition: .4s;
-  border-radius: 10px;
-}
-
-.btn-flat-logo-login:hover {
-  background: #FF3399;
-}
-
-.login-button {
-  margin-top: 30px;
-}
-
-.test-user {
-  margin-top: 50px;
-  background-color: aquamarine;
-  border-radius: 10px;
+.home-desc p {
+  font-weight: 600;
 }

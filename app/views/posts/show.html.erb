@@ -21,12 +21,12 @@
 
 <div class="show_tags_box">
   <% @post.tags.each do |tag| %>
-    <span class="label label-primary"><%= tag.name %></span>
+    <span class="badge badge-primary"><%= tag.name %></span>
   <% end %>
 </div>
 
 <% unless @post.clock_id.nil? %>
-  <div class="label label-success show_clock_box">
+  <div class="badge badge-success show_clock_box">
     <span class="clock"><%= @post.clock.name %></span>
   </div>
 <% end %>
