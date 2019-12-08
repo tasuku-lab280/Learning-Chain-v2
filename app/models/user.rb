@@ -54,12 +54,13 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def self.search(search) 
-    if search
-      where(['name LIKE ?', "%#{search}%"]) 
-    else
-      all 
-    end
+  #name以外は検索できないようにする
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
   end
 
 end

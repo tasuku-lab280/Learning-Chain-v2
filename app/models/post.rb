@@ -18,14 +18,13 @@ class Post < ApplicationRecord
    	likes.where(user_id: user.id).exists?
   end
   
-  #引数に検索フォームで入力した値が入る
-  def self.search(search) 
-    if search
-      #SQLのあいまい検索のLIKE ?
-      where(['title LIKE ?', "%#{search}%"]) 
-    else
-      all 
-    end
+  #title以外は検索できないようにする
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
   end
 
 end
