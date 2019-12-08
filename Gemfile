@@ -15,8 +15,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'faker', '~> 2.6'
+gem 'ransack'
 gem 'rails-i18n', '~> 5.1'
-# gem 'bootstrap-sass', '3.3.7'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'will_paginate', '3.1.7'

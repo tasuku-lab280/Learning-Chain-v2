@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
 
   def index
-    @posts = Post.all.paginate(page: params[:page]).search(params[:search])
-
     #ログインしていない状態でcurrent_userメソッドを呼ぶのを防ぐため
     if logged_in?
-      @feed_items = current_user.feed.paginate(page: params[:page]).search(params[:search])
+      @q = current_user.feed.ransack(params[:q])
+      @feed_items = @q.result(distinct: true).paginate(page: params[:page])
+    else
+      @q = Post.all.ransack(params[:q])
+      @posts = @q.result(distinct: true).paginate(page: params[:page])
     end
   end
   

@@ -4,14 +4,15 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    #searchメソッドで検索をしてから代入
-    @users = User.paginate(page: params[:page]).search(params[:search])
+    @q = User.paginate(page: params[:page]).ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show
     @user = User.find(params[:id])
-    #searchメソッドで検索をしてから代入
-    @posts = @user.posts.paginate(page: params[:page]).search(params[:search])
+    
+    @q = @user.posts.paginate(page: params[:page]).ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
   
   def new

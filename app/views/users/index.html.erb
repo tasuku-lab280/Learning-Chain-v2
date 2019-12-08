@@ -4,11 +4,13 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
 
-    <%= form_with url: users_path, method: :get, local: true, id: "user_search_form" do |f| %>
-      <%= f.label :search, 'ユーザー検索' %>
-      <div>
-        <%= f.text_field :search %>
-        <%= f.submit '検索' %>
+    <%= search_form_for @q, url: users_path, class: "mb-3" do |f| %>
+      <div class="form-group row mb-0">
+        <%= f.label :name_cont, 'ユーザー検索', class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= f.search_field :name_cont, class: "form-control mb-2" %>
+          <%= f.submit class: "btn btn-outline-primary" %>
+        </div>
       </div>
     <% end %>
 
