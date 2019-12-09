@@ -1,7 +1,7 @@
 <% if @feed_items.any? %>
   <ol class="posts p-0">
     <% @feed_items.each do |post| %>
-      <%= render 'home/post', post: post %>
+      <%= render 'posts/post', post: post %>
     <% end %>
   </ol>
   <%= paginate @feed_items %>

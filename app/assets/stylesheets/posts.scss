@@ -5,43 +5,47 @@
 
 /* post#show */
 
-.show_material_box {
-
-  .show_material {
-    font-size: 22px;
-    font-weight: 700;
-    background-color: rgb(238, 232, 178);
-  }
+.show-user {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.show_image_box {
-  margin-top: 20px;
+.show-title {
+font-size: 30px;
+font-weight: bold;
 }
 
-.show_content_box {
+.show-material {
+  font-size: 22px;
+  font-weight: 700;
+  background-color: rgb(238, 232, 178);
+}
+
+.show-content {
+  font-size: 28px;
+}
+
+.show-content-box {
   border: 2px solid #b8b6b6;
   height: 700px;
   padding: 20px;
   word-wrap: break-word;
 }
 
-.show_likes_box {
+.show-likes-box {
   li {
     list-style: square;
   }
 }
 
-.comment_index {
-  margin-top: 100px;
+.index-comment ul {
+  padding: 0;
 
-  ul {
-    padding: 0;
-
-    li {
-    list-style: none;
-    border: 2px solid #b8b6b6;
-    border-radius: 10px;
-    padding: 10px 20px;
+  li {
+  list-style: none;
+  border: 2px solid #b8b6b6;
+  border-radius: 10px;
+  padding: 10px 20px;
 
     a {
       text-decoration: none;
@@ -51,23 +55,18 @@
       }
 
       .comment-name {
-      font-size: 20px;
-      color: black;
+        font-size: 20px;
       }
     }
   }
 
-    .comment-box {
-      word-wrap: break-word;
+  .comment-box {
+    word-wrap: break-word;
 
-      .comment-body {
+    .comment-body {
       font-size: 22px;
-      }
     }
   }
-
-  
-
 }
 
 
@@ -80,21 +79,10 @@
   padding: 50px 40px;
   margin: 0 auto;
   border-radius: 10px;
-}
-
-.form-control {
-  margin-bottom: 30px;
-}
-
-.submit {
-  margin-top: 30px;
-}
-
-.field {
-  margin: 20px 0;
 
   #post_content {
   width: 470px;
   height: 200px;
   }
 }
+

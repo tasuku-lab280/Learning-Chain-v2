@@ -2,23 +2,27 @@
 <h1>ユーザーログイン</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-6 offset-md-3">
     <%= form_with scope: :session, url: login_path, local: true, id: "login_user" do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <div class="submit">
-        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
       </div>
 
-      <p>ユーザー登録がまだお済ではありませんか？</p>
-      <p><%= link_to "ここからユーザー登録できます！", signup_path %></p>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
 
-      <div class="test-user">
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+
+      <div class="mt-5">
+        <p>ユーザー登録がまだお済ではありませんか？</p>
+        <p><%= link_to "ここからユーザー登録できます！", signup_path %></p>
+      </div>
+
+      <div class="bg-info rounded mt-5">
         <p>メールアドレス : "test@example.com"</p>
         <p>パスワード : "password"</p>
         <p>でもログイン可能です！</p>

@@ -17,7 +17,7 @@
     <% else %>
       <% @posts.each do |post| %>
         <ol class="posts p-0">
-          <%= render 'home/post', post: post %>
+          <%= render 'posts/post', post: post %>
         </ol>
       <% end %>
       <%= paginate @posts %>
@@ -37,16 +37,16 @@
       <div class="like-posts">
         <h3>いいねした投稿</h3>
         <% @user.liked_posts.each do |post| %>
-          <ul>
-            <li>
-              <%= link_to post_path(post.id) do %>
-                <%= post.user.name %>:<%= post.title %>
-              <% end %>
-            </li>
-          </ul>
+        <ul>
+          <li>
+            <%= link_to post_path(post.id) do %>
+              <%= post.user.name %>:<%= post.title %>
+            <% end %>
+          </li>
+        </ul>
         <% end %>
       </div>
-    <% end %>
+      <% end %>
 
     <% else %>
       <h1>Learning Chain</h1>
@@ -55,30 +55,29 @@
       <p class=>ログインすると投稿できます！</p>
       
       <div class="mt-5">
+      <p>まだユーザー登録がお済でない方↓</p>
         <div>
-          <p>まだユーザー登録がお済でない方↓</p>
-          <div>
-            <%= link_to signup_path, class:"btn btn-primary rounded-pill" do %>
-              新規登録ページへ
-            <% end %>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p>メールアドレス : "test@example.com"</p>
-          <p>パスワード : "password"</p>
-          <p>でもログイン可能です！</p>
-        </div>
-
-        <div class="mt-5">
-          <p>ユーザー登録がお済の方↓</p>
-          <div>
-            <%= link_to login_path, class:"btn btn-danger rounded-pill" do %>
-              ログインページへ
-            <% end %>
-          </div>
+          <%= link_to signup_path, class:"btn btn-primary rounded-pill" do %>
+            新規登録ページへ
+          <% end %>
         </div>
       </div>
+
+      <div class="mt-5">
+        <p>ユーザー登録がお済の方↓</p>
+        <div>
+          <%= link_to login_path, class:"btn btn-danger rounded-pill" do %>
+            ログインページへ
+          <% end %>
+        </div>
+      </div>
+
+      <div class="mt-5 bg-info rounded">
+        <p>メールアドレス : "test@example.com"</p>
+        <p>パスワード : "password"</p>
+        <p>でもログイン可能です！</p>
+      </div>
+
     <% end %>
 
   </div>

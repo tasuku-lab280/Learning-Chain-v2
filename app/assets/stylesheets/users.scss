@@ -5,10 +5,6 @@
 
 /* users#index */
 
-#user_search_form {
-  margin-bottom: 30px;
-}
-
 .users {
 
   li {
@@ -25,33 +21,7 @@
 }
 
 
-/* users#show */
-
-.show_title_box {
-  margin-top: 30px;
-
-  .show_title {
-  font-size: 30px;
-  font-weight: bold;
-  }
-
-}
-
-.user {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.show_content_box {
-  margin-top: 100px;
-
-  .content {
-    font-size: 28px;
-  }
-}
-
-
-/* users-form */
+/* users#new edit */
 
 #user_form {
   width: 550px;
@@ -60,12 +30,4 @@
   padding: 88px 40px;
   margin: 0 auto;
   border-radius: 10px;
-}
-
-.form-control {
-  margin-bottom: 30px;
-}
-
-.submit {
-  margin-top: 30px;
 }

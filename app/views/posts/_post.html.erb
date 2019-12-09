@@ -1,4 +1,4 @@
-<li class="mt-3 p-3" id="post-<%= post.id %>">
+<li class="mt-3 py-3 pl-3" id="post-<%= post.id %>">
 
   <div>
     <span class="title font-weight-bold">
@@ -8,7 +8,7 @@
     </span>
   </div>
 
-  <% unless post.clock_id.nil? %>
+  <% if post.clock_id.present? %>
     <div class="badge badge-success clock-box">
       <span class="clock"><%= post.clock.name %></span>
     </div>
@@ -16,9 +16,9 @@
 
   <div>
     <% if post.user.image.attached? %>
-      <%= image_tag(post.user.image, :size => "35x35", :class => "top-icon", :alt => "アイコン") %>
+      <%= image_tag(post.user.image, size: "35x35", class: "top-icon", alt: "アイコン") %>
     <% else %>
-      <%= image_tag("cat-default.jpg", :size => "35x35", :class => "top-icon", :alt => "アイコン") %>
+      <%= image_tag("cat-default.jpg", size: "35x35", class: "top-icon", alt: "アイコン") %>
     <% end %>
     <span class="user ml-2"><%= link_to post.user.name, post.user %></span>
   </div>
@@ -42,7 +42,17 @@
       </div>
       <% if logged_in? %>
         <div id="like_form_<%= post.id %>">
-          <%= render "likes/like", post: post %>
+        <% if post.liked_by?(current_user) %>
+          <p>
+            <%= link_to "💓", "/posts/#{post.id}/likes/destroy", method: :delete, remote: true %>
+            <strong><%= post.likes.count %></strong>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to "💓", "/posts/#{post.id}/likes", method: :post, remote: true %>
+            <strong><%= post.likes.count %></strong>
+          </p>
+        <% end %>
         </div>
       <% else %>
         💓
@@ -53,12 +63,12 @@
     Posted <%= time_ago_in_words(post.created_at) %> ago.
     <% if current_user?(post.user) %>
       <%= link_to edit_post_path(post.id) do %>
-        <span class="glyphicon glyphicon-edit"></span>
+        <i class="fas fa-edit"></i>
       <% end %>
       <%= link_to post, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
-        <span class="glyphicon glyphicon-trash"></span>
+        <i class="fas fa-trash"></i>
       <% end %>
     <% end %>
   </div>
- 
+
 </li>
