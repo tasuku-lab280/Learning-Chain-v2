@@ -13,8 +13,8 @@
             タグ
           </a>
           <div class="dropdown-menu">
-            <% @tags.each do |tag| %>
-              <a class="dropdown-item" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+            <% Post.tag.options.each do |k,v| %>
+              <a class="dropdown-item" href="#"><%= k %></a>
             <% end %>
           </div>
         </li>
@@ -29,8 +29,8 @@
             タグ
           </a>
           <div class="dropdown-menu">
-            <% @tags.each do |tag| %>
-              <a class="dropdown-item" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+            <% Post.tag.options.each do |k,v| %>
+              <a class="dropdown-item" href="#"><%= k %></a>
             <% end %>
           </div>
         </li>

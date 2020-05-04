@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 'ユーザー名'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード（確認）'
+        image: 'プロフィール画像'
+      post: 
+        clock_id: '勉強時間'
+        content: '勉強内容'
+        title: 'タイトル'
+        material: '教材'
+        tag: 'タグ'
+        image: '画像'

@@ -21,9 +21,7 @@
 
 <div class="d-flex">
   <div>
-    <% @post.tags.each do |tag| %>
-      <span class="badge badge-primary"><%= tag.name %></span>
-    <% end %>
+    <span class="badge badge-primary"><%= @post.tag_text %></span>
   </div>
 
   <% if @post.clock_id.present? %>
