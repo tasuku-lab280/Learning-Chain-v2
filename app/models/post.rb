@@ -25,10 +25,6 @@ class Post < ApplicationRecord
   validates :material,          length: { maximum: 30, allow_blank: true }
   validates :content,           presence: true, 
                                 length: { maximum: 300 }
-
-  def liked_by?(user)
-    likes.where(user_id: user.id).exists?
-  end
   
   #title以外は検索できないようにする
   def self.ransackable_attributes(auth_object = nil)

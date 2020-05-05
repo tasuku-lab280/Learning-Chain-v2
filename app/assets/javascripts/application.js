@@ -16,3 +16,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//= require jquery_ujs
+//= require tether
+//= require bootstrap

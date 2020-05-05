@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     if logged_in?
-      @posts = current_user.posts.page(params[:page])
+      @posts = Post.all.where.not(user_id: current_user.id).page(params[:page])
     else
       @posts = Post.all.page(params[:page])
     end

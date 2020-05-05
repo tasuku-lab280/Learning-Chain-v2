@@ -1,10 +1,7 @@
-<%= form_with(model: @user, local: true, id: "user_form") do |f| %>
+<%= simple_form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+  <%= f.input :name %>
 
   <div class="form-group">
     <%= f.label :email %>

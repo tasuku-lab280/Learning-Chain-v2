@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # 関連
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
@@ -11,11 +12,14 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
-
   has_one_attached :image
 
+
+  # フック
   before_save { self.email = email.downcase }
 
+
+  # バリデーション
   validates :name,
     presence: true,
     length: { maximum: 30 }
@@ -34,7 +38,9 @@ class User < ApplicationRecord
     presence: true, 
     length: { minimum: 6 }, 
     allow_nil: true
-  
+
+
+  # メソッド
   def feed
     following_ids = "SELECT followed_id FROM relationships
                       WHERE follower_id = :user_id"

@@ -31,24 +31,6 @@
           <span class="mt-2 detail-text">詳細を見る</span>
         <% end %>
       </div>
-      <% if logged_in? %>
-        <div id="like_form_<%= post.id %>">
-        <% if post.liked_by?(current_user) %>
-          <p>
-            <%= link_to "💓", "/posts/#{post.id}/likes/destroy", method: :delete, remote: true %>
-            <strong><%= post.likes.count %></strong>
-          </p>
-        <% else %>
-          <p>
-            <%= link_to "💓", "/posts/#{post.id}/likes", method: :post, remote: true %>
-            <strong><%= post.likes.count %></strong>
-          </p>
-        <% end %>
-        </div>
-      <% else %>
-        💓
-        <strong><%= post.likes.count %></strong>
-      <% end %>
     </div>
 
     Posted <%= time_ago_in_words(post.created_at) %> ago.

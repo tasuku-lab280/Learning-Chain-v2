@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     
     @q = @user.posts.ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page])
+    @like_count = Like.where(post_id: params[:post_id]).count
   end
   
   def new
