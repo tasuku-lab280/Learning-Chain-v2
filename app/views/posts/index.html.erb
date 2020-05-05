@@ -1,0 +1,31 @@
+<div>
+  <table class="table table-hover">
+    <thead class="thead-default">
+      <tr>
+        <th><%= Post.human_attribute_name(:id) %></th>
+        <th><%= Post.human_attribute_name(:title) %></th>
+        <th><%= Post.human_attribute_name(:tag) %></th>
+        <th><%= Post.human_attribute_name(:material) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.id %></td>
+          <td><%= post.title %></td>
+          <td><%= post.tag_text %></td>
+          <td><%= post.material %></td>
+          <td>
+            <%= link_to '詳細', post_path(post), class: 'btn btn-primary mr-1' %>
+            <%= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-1' %>
+            <%= link_to '削除', post,
+                                method: :delete, 
+                                data: { confirm: "タスク「#{post.title}」を削除します。よろしいですか？" },
+                                class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @posts %>

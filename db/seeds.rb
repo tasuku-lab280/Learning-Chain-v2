@@ -9,8 +9,8 @@ User.create!(name:  "テストユーザー",
              password:              "password",
              password_confirmation: "password")
 
-60.times do |n|
-  name  = Faker::Name.name
+50.times do |n|
+  name  = "会員#{n+1}"
   email = "example-#{n+1}@example.org"
   password = "password"
   User.create!(name:  name,
@@ -19,16 +19,18 @@ User.create!(name:  "テストユーザー",
                password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
+users = User.order(:created_at).first(10)
 35.times do |n|
-  content = Faker::Food.description
-  title = Faker::Food.dish
-  users.each { |user| user.posts.create!(content: content, title: title) }
+  title = "サンプルタイトル#{n+1}"
+  material = "サンプル教材#{n+1}"
+  tag = Post.tag.values.sample
+  content = "サンプル内容#{n+1}"
+  users.each { |user| user.posts.create!(title: title, material: material, tag: tag, content: content) }
 end
 
 users = User.all
-user  = users.first
-following = users[2..50]
-followers = users[3..40]
+user  = users.second
+following = users[3..20]
+followers = users[4..30]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }

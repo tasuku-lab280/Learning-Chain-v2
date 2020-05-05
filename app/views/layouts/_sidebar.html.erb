@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <li><%= link_to "会員一覧", users_path, class: 'list-group-item' %></li>
+  <li><%= link_to "投稿一覧", posts_path, class: 'list-group-item' %></li>
+  <% if logged_in? %>
+    <li><%= link_to "フォロー一覧", following_user_path(current_user), class: 'list-group-item' %></li>
+    <li><%= link_to "フォロワー一覧", followers_user_path(current_user), class: 'list-group-item' %></li>
+    <li><%= link_to "マイページ", current_user, class: 'list-group-item' %></li>
+    <li><%= link_to "ユーザー編集", edit_user_path(current_user), class: 'list-group-item' %></li>
+    <li><%= link_to "勉強記録を投稿する", new_post_path, class: 'list-group-item' %></li>
+  <% end %>
+</ul>
