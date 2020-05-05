@@ -7,12 +7,6 @@
     </span>
   </div>
 
-  <% if post.clock_id.present? %>
-    <div class="badge badge-success clock-box">
-      <span class="clock"><%= post.clock.name %></span>
-    </div>
-  <% end %>
-
   <div>
     <% if post.user.image.attached? %>
       <%= image_tag(post.user.image, size: "35x35", class: "top-icon", alt: "アイコン") %>

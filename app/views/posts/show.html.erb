@@ -23,12 +23,6 @@
   <div>
     <span class="badge badge-primary"><%= @post.tag_text %></span>
   </div>
-
-  <% if @post.clock_id.present? %>
-    <div>
-      <span class="badge badge-success"><%= @post.clock.name %></span>
-    </div>
-  <% end %>
 </div>
 
 <% if @post.image.attached? %>

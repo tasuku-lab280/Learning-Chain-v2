@@ -12,11 +12,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :clock_id %><br>
-    <%= f.collection_select :clock_id, Clock.all, :id, :name %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :tag %><br>
     <%= f.select :tag, Post.tag.options %>
   </div>

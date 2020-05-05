@@ -3,7 +3,6 @@ class Post < ApplicationRecord
   enumerize :tag, in: %w(programming university qualification english reading), predicates: { prefix: true }
 
   belongs_to :user
-  belongs_to :clock, optional: true
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
